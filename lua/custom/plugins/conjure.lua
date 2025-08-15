@@ -17,6 +17,18 @@ return {
     'hylang/vim-hy',
   },
   {
+    'guns/vim-sexp',
+  },
+  {
+    'tpope/vim-sexp-mappings-for-regular-people',
+  },
+  {
+    'tpope/vim-repeat',
+  },
+  {
+    'tpope/vim-surround',
+  },
+  {
     'hrsh7th/nvim-cmp',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp', -- LSP completion source
