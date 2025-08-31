@@ -42,7 +42,22 @@ return {
     config = function()
       -- Your nvim-cmp setup goes here
       local cmp = require 'cmp'
+      local context = require 'cmp.config.context'
       cmp.setup {
+        enabled = function()
+          if vim.bo.buftype == 'prompt' then
+            return false
+          end
+          if
+            context.in_treesitter_capture 'comment'
+            or context.in_treesitter_capture 'string'
+            or context.in_treesitter_capture 'Comment'
+            or context.in_treesitter_capture 'String'
+          then
+            return false
+          end
+          return true
+        end,
         snippet = {
           expand = function(args)
             -- Configure your snippet engine here, e.g., LuaSnip
